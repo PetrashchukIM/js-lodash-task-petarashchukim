@@ -1,33 +1,32 @@
 import _ from 'lodash';
 
-// Returns an array of active users.
+let users = [
+  { id: 1, name: 'Alice', age: 25, active: true },
+  { id: 2, name: 'Bob', age: 30, active: false },
+  { id: 3, name: 'Charlie', age: 35, active: true },
+  { id: 4, name: 'David', age: 40, active: false }
+];
+
 function getActiveUsers(users) {
-
+  return _.filter(users, { active: true });
 }
 
-
-//Returns an array of users sorted by age in ascending order.
 function getSortedUsersByAge(users) {
-
+  return _.sortBy(users, 'age');
 }
 
-
-//Returns an array of all users' names.
 function getUserNames(users) {
-
+  return _.map(users, 'name');
 }
 
-//Returns the user object by the given id. If the user is not found, returns null.
 function getUserById(users, id) {
-
+  return _.find(users, { id }) || null;
 }
 
-//Adds a new user to the array of users. Returns the updated array of users.
 function addUser(users, newUser) {
-
+  return [...users, newUser];
 }
 
-//Removes the user by the given id. Returns the updated array of users.
 function removeUserById(users, id) {
-    
+  return _.reject(users, { id });
 }
